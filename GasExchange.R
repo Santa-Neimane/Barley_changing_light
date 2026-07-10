@@ -9,9 +9,10 @@
 dataGas <- read_excel("GasExchange.xlsx")
 dataGas <- left_join(dataGas, filtermapping, by="FilterNr")
 dataGas$Grouping <- paste0(dataGas$Spectral,"_",dataGas$Diff)
-GasExchange2 <- subset(dataGas, PARi<1990)
+GasExchange2 <- dataGas[-157, ]
+GasExchange2 <- subset(GasExchange2, PARi<1990)
 GasExchange3 <- subset(GasExchange2, FilterNr!=7) # removal of outlier
-GasExchange3 <- subset(GasExchange3, FilterNr!=29) # removal of outlier
+GasExchange3 <- subset(GasExchange3, FilterNr!=29
 
 
 # Fit separate models for each group and store predictions
